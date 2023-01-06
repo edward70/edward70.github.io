@@ -306,9 +306,9 @@
             <div class="title-bar" id="mainheader">
                 <div class="title-bar-text">edward70</div>
                 <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow()"></button>
-                    <button aria-label="Maximize" onclick="enlarge()" id="max"></button>
-                    <button aria-label="Close" onclick="hideWindow()"></button>
+                    <button aria-label="Minimize" onclick="toggleWindow()" ontouchend="toggleWindow()"></button>
+                    <button aria-label="Maximize" onclick="enlarge()" ontouchend="enlarge()" id="max"></button>
+                    <button aria-label="Close" onclick="hideWindow()" ontouchend="hideWindow()"></button>
                 </div>
             </div>
             <div class="window-body">
@@ -453,15 +453,15 @@
                   >
                     <div class="field-row-stacked">
                       <label for="name">Name</label>
-                      <input id="name" type="text" />
+                      <input id="name" type="text" name="name" required />
                     </div>
                     <div class="field-row-stacked">
                       <label for="email">Email</label>
-                      <input id="email" type="email" />
+                      <input id="email" type="email" name="email" required />
                     </div>
                     <div class="field-row-stacked">
                       <label for="message">Message</label>
-                      <textarea id="message" rows="8"></textarea>
+                      <textarea id="message" rows="8" name="message" required></textarea>
                     </div>
                     <button type="submit">Submit</button>
                   </form>
