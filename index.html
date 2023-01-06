@@ -28,6 +28,9 @@
 
           body {
             background-image: url('./img/greenhills.jpg');
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
             background-size: cover;
             overflow: clip;
             display: flex;
@@ -128,6 +131,12 @@
             max-height: calc(95vh - 90px);
           }
 
+          @media only screen and (max-width: 500px) {
+            #portfolio {
+              max-height: calc(90vh - 90px);
+            }
+          }
+
           figure {
             display: inline-block;
           }
@@ -142,27 +151,48 @@
           function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            document.getElementById(elmnt.id + "header").ontouchstart = dragMouseDown;
 
             function dragMouseDown(e) {
               elmnt.style.position = "absolute";
               e = e || window.event;
               e.preventDefault();
+              // https://stackoverflow.com/questions/41993176/determine-touch-position-on-tablets-with-javascript
+              if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
+                var touch = e.touches[0] || e.changedTouches[0];
+                x = touch.pageX;
+                y = touch.pageY;
+              } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
+                x = e.clientX;
+                y = e.clientY;
+              }
               // get the mouse cursor position at startup:
-              pos3 = e.clientX;
-              pos4 = e.clientY;
+              pos3 = x;
+              pos4 = y;
               document.onmouseup = closeDragElement;
+              document.ontouchend = closeDragElement;
               // call a function whenever the cursor moves:
               document.onmousemove = elementDrag;
+              document.ontouchmove = elementDrag;
             }
 
             function elementDrag(e) {
               e = e || window.event;
-              e.preventDefault();
+              // https://stackoverflow.com/questions/41993176/determine-touch-position-on-tablets-with-javascript
+              if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
+                var touch = e.touches[0] || e.changedTouches[0];
+                x = touch.pageX;
+                y = touch.pageY;
+              } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
+                x = e.clientX;
+                y = e.clientY;
+                e.preventDefault();
+              }
               // calculate the new cursor position:
-              pos1 = pos3 - e.clientX;
-              pos2 = pos4 - e.clientY;
-              pos3 = e.clientX;
-              pos4 = e.clientY;
+              pos1 = pos3 - x;
+              pos2 = pos4 - y;
+              pos3 = x;
+              pos4 = y;
               // set the element's new position:
               elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
               elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -171,7 +201,9 @@
             function closeDragElement() {
               // stop moving when mouse button is released:
               document.onmouseup = null;
+              document.ontouchend = null;
               document.onmousemove = null;
+              document.ontouchmove = null;
             }
           }
 
@@ -314,7 +346,7 @@
                     <figcaption><a href="">Latin Quiz</a></figcaption>
                   </figure>
                   <figure>
-                    <img src="legend.PNG" width="150" />
+                    <img src="./img/legend.PNG" width="150" />
                     <figcaption><a href="">Quadratic Sketching Game</a></figcaption>
                   </figure>
                   <figure>
@@ -415,19 +447,24 @@
                   </figure>
                 </article>
                 <article role="tabpanel" hidden id="contact">
-                  <div class="field-row-stacked">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" />
-                  </div>
-                  <div class="field-row-stacked">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" />
-                  </div>
-                  <div class="field-row-stacked">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="8"></textarea>
-                  </div>
-                  <button type="submit">Submit</button>
+                  <form
+                    action="https://formspree.io/f/xnqyqzlk"
+                    method="POST"
+                  >
+                    <div class="field-row-stacked">
+                      <label for="name">Name</label>
+                      <input id="name" type="text" />
+                    </div>
+                    <div class="field-row-stacked">
+                      <label for="email">Email</label>
+                      <input id="email" type="email" />
+                    </div>
+                    <div class="field-row-stacked">
+                      <label for="message">Message</label>
+                      <textarea id="message" rows="8"></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                  </form>
                 </article>
             </div>
         </div>
