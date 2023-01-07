@@ -16,9 +16,9 @@
           <div class="title-bar" id="mainheader">
             <div class="title-bar-text">edward70</div>
               <div class="title-bar-controls">
-                <button aria-label="Minimize" onclick="toggleWindow()" ontouchstart="toggleWindow()"></button>
-                <button aria-label="Maximize" onclick="enlarge()" ontouchstart="enlarge()" id="max"></button>
-                <button aria-label="Close" onclick="hideWindow()" ontouchstart="hideWindow()"></button>
+                <button aria-label="Minimize" onclick="toggleWindow()" ontouchstart="toggleWindow(); event.stopPropagation();"></button>
+                <button aria-label="Maximize" onclick="enlarge()" ontouchstart="enlarge(); event.stopPropagation();" id="max"></button>
+                <button aria-label="Close" onclick="hideWindow()" ontouchstart="hideWindow(); event.stopPropagation();"></button>
               </div>
           </div>
           <div class="window-body">
@@ -183,7 +183,7 @@
       </div>
       <div class="taskbar">
         <label id="startbutton">start</label>
-        <label class="task" onclick="toggleWindow()" ontouchstart="toggleWindow()" id="maintask">edward70</label>
+        <label class="task" onclick="toggleWindow()" id="maintask">edward70</label>
         <div id="clock">--:-- AM</div>
       </div>
     </div>
