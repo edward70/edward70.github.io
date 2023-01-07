@@ -87,6 +87,9 @@ window.onload = function () {
   var max = document.getElementById('max');
   window.enlarge = function () {
     header.onmousedown = null;
+    header.ontouchstart = null;
+    header.ontouchend = null;
+    header.ontouchmove = null;
     if (max.ariaLabel == "Maximize") {
       max.ariaLabel = "Restore";
       mainwin.classList.add('maxed');
