@@ -15,7 +15,9 @@ window.onload = function () {
     function dragMouseDown(e) {
       elmnt.style.position = "absolute";
       e = e || window.event;
-      e.preventDefault();
+      if (e.cancelable) {
+        e.preventDefault();
+      }
       // https://stackoverflow.com/questions/41993176/determine-touch-position-on-tablets-with-javascript
       if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
         var touch = e.touches[0] || e.changedTouches[0];
@@ -45,7 +47,9 @@ window.onload = function () {
       } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
         x = e.clientX;
         y = e.clientY;
-        e.preventDefault();
+        if (e.cancelable) {
+          e.preventDefault();
+        }
       }
       // calculate the new cursor position:
       pos1 = pos3 - x;
@@ -67,12 +71,14 @@ window.onload = function () {
   }
 
   var maintask = document.getElementById('maintask');
-  window.hideWindow = function () {
+  window.hideWindow = function (event) {
+    event.stopPropagation();
     mainwin.hidden = true;
     maintask.style.display = 'none';
   }
 
-  window.toggleWindow = function () {
+  window.toggleWindow = function (event) {
+    event.stopPropagation();
     if (mainwin.hidden == true) {
       mainwin.hidden = false;
       maintask.style.background = "#2155bd";
@@ -85,7 +91,19 @@ window.onload = function () {
   }
 
   var max = document.getElementById('max');
-  window.enlarge = function () {
+  var min = document.getElementById('min');
+  var close = document.getElementById('close');
+  var pprop = function (e) {e.stopPropagation();};
+
+  max.onmousedown = pprop;
+  max.ontouchstart = pprop;
+  min.onmousedown = pprop;
+  min.ontouchstart = pprop;
+  close.onmousedown = pprop;
+  close.ontouchstart = pprop;
+
+  window.enlarge = function (event) {
+    event.stopPropagation();
     header.onmousedown = null;
     header.ontouchstart = null;
     header.ontouchend = null;
@@ -98,7 +116,7 @@ window.onload = function () {
       mainwin.classList.remove('maxed');
       dragElement(mainwin);
     }
-  }
+  };
 
   window.onmouseup = function () {
     startbutton.classList.remove('shadedstart');
