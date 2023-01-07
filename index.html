@@ -16,9 +16,9 @@
           <div class="title-bar" id="mainheader">
             <div class="title-bar-text">edward70</div>
               <div class="title-bar-controls">
-                <button aria-label="Minimize" onclick="toggleWindow()"></button>
-                <button aria-label="Maximize" onclick="enlarge()" id="max"></button>
-                <button aria-label="Close" onclick="hideWindow()"></button>
+                <button aria-label="Minimize" onclick="toggleWindow()" ontouchend="toggleWindow(); event.stopPropagation();"></button>
+                <button aria-label="Maximize" onclick="enlarge()" ontouchend="enlarge(); event.stopPropagation();" id="max"></button>
+                <button aria-label="Close" onclick="hideWindow()" ontouchend="hideWindow(); event.stopPropagation();"></button>
               </div>
           </div>
           <div class="window-body">
