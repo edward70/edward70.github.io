@@ -123,8 +123,13 @@ window.onload = function () {
   };
 
   startbutton.onmouseup = function () {
-    startbutton.classList.remove('shadedstart')
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+    startbutton.classList.remove('shadedstart');
+    if (maintask.style.display == 'none') {
+      mainwin.hidden = false;
+      maintask.style.display = 'block';
+    } else {
+      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+    }
   };
 
   startbutton.onmousedown = function () {
