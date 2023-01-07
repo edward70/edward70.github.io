@@ -8,7 +8,8 @@ body {
 }
 
 #body-container {
-    height: 100vh;
+    height: 100vh; /* fallback */
+    height: 100dvh;
     overflow: hidden;
 }
 
@@ -16,7 +17,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 28px);
+    height: calc(100vh - 28px); /* fallback */
+    height: calc(100dvh - 28px);
     overflow: hidden;
 }
 
@@ -87,7 +89,8 @@ button[type="submit"] {
 #portfolio-grid {
     box-sizing: border-box;
     width: calc(100vw - 100px);
-    height: calc(100vh - 130px);
+    height: calc(100vh - 130px); /* fallback */
+    height: calc(100dvh - 130px);
 }
 
 #portfolio-grid > figure {
