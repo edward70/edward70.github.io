@@ -84,13 +84,13 @@ button[type="submit"] {
     overflow-y: scroll;
 }
 
-.grid {
+#portfolio-grid {
     box-sizing: border-box;
     width: calc(100vw - 100px);
     height: calc(100vh - 130px);
 }
 
-figure {
+#portfolio-grid > figure {
     display: inline-block;
 }
 
