@@ -1,0 +1,141 @@
+/* Layout styling */
+
+body {
+    background-image: url('./img/greenhills.jpg');
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+
+#body-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#window-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 28px);
+    overflow: hidden;
+}
+
+.window {
+    min-width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* No side spacing on small screens */
+@media only screen and (max-width: 500px) {
+    .window {
+        min-width: 100%;
+    }
+}
+
+.window.maxed {
+    width: 100%;
+    height: 100%;
+    position: static !important;
+}
+
+.window.maxed > .title-bar {
+    border-radius: 0px;
+}
+
+#clock {
+    background: linear-gradient(to bottom, #0c8dea 0%, #3fccf3 9%, #0c8dea 18%, #0c8dea 92%, #333 100%) center/cover no-repeat;
+    border-left: 1px solid #333;
+    margin-left: auto;
+    padding: 1em;
+    font-size: 11px;
+    color: #fff;
+    font-family: Arial;
+    line-height: 0.8;
+}
+
+.task {
+    background: #2155bd;
+    padding-left: 2em;
+    padding-right: 7em;
+    font-size: 11px;
+    color: #fff;
+    font-family: Arial;
+    line-height: 1.9;
+    margin-left: 1em;
+    margin-top: 4px;
+    max-height: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px #333 inset;
+}
+
+/* Ensure minimum size on larger screens */
+@media only screen and (min-width: 350px) {
+    #contact {
+        min-width: 300px;
+    }
+}
+
+button[type="submit"] {
+    margin-top: 1em;
+}
+
+#portfolio {
+    overflow-y: scroll;
+}
+
+.grid {
+    box-sizing: border-box;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 130px);
+}
+
+figure {
+    display: inline-block;
+}
+
+/* Following code adapted from https://codepen.io/brundolf/pen/wzMWdy */
+
+.taskbar {
+    background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%) center/cover no-repeat;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    z-index: 999;
+    width: 100%;
+    height: 28px;
+}
+
+#startbutton {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    font-family: arial;
+    color: white;
+    font-style: italic;
+    padding: 5px 25px 5px 15px;
+    text-shadow: 1px 1px 1px #333;
+    border-radius: 0px 10px 15px 0px;
+    border: none;
+    transform: skewX(-3deg);
+    left: -5px;
+    box-shadow: 0px 5px 10px #79ce71 inset;
+    background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
+}
+
+#startbutton.shadedstart {
+    box-shadow: 0px 0px 15px #333 inset;
+}
+
+#startbutton::before {
+    content: '';
+    background: url('./img/xp.png') center/cover no-repeat;
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    top: 1px;
+    transform: skewX(3deg);
+    -webkit-filter: drop-shadow(1px 1px 1px #333);
+    margin-right: 5px;
+}

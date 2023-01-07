@@ -1,477 +1,190 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Edward Howells - Portfolio</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="UTF-8">
-        <link
-        rel="stylesheet"
-        href="https://unpkg.com/xp.css"
-        >
-        <style>
-          .window {
-            max-width: max-content;
-            min-width: max-content;
-          }
-
-          @media only screen and (max-width: 500px) {
-            .window {
-              min-width: 100%;
-              max-width: min-content;
-            }
-          }
-
-          .maxed {
-            min-width: 100% !important;
-            min-height: 100% !important;
-            position: unset !important;
-          }
-
-          body {
-            background-image: url('./img/greenhills.jpg');
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            overflow: clip;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            font-family: arial;
-          }
-
-          #clock {
-            background:linear-gradient(to bottom, #0c8dea 0%, #3fccf3 9%, #0c8dea 18%, #0c8dea 92%, #333 100%) center/cover no-repeat;
-            border-left: 1px solid #333;
-            margin-left: auto;
-            padding: 1em;
-            font-size: 11px;
-            color: #fff;
-            font-family: Arial;
-            line-height: 0.8;
-          }
-
-          .task {
-            /*background: linear-gradient(to bottom,#7fccf3 0%, #0c8dea 12%,#0c8dea 100%) center/cover no-repeat;*/
-            background: #2155bd;
-            padding-left: 2em;
-            padding-right: 7em;
-            font-size: 11px;
-            color: #fff;
-            font-family: Arial;
-            line-height: 1.9;
-            margin-left: 1em;
-            margin-top: 4px;
-            max-height: 20px;
-            border-radius: 2px;
-            /*box-shadow: -3px 0px 2px #045edb inset;*/
-            box-shadow: 0px 0px 2px #333 inset;
-          }
-
-          /* code from https://codepen.io/brundolf/pen/wzMWdy */
-          .taskbar {
-            background:linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%) center/cover no-repeat;
-            position:absolute;
-            display:flex;
-            z-index:100;
-            bottom:0;
-            left:0;
-            width:100%;
-            height:28px;
-          }
-
-          #startbutton {
-            position:relative;
-            display:inline-block;
-            font-size:18px;
-            font-family: arial;
-            color:white;
-            font-style:italic;
-            padding: 5px 25px 5px 15px;
-            text-shadow:1px 1px 1px #333;
-            border-radius:0px 10px 15px 0px;
-            border:none;
-            transform:skewX(-3deg);
-            left:-5px;
-            
-            box-shadow: 0px 5px 10px #79ce71 inset;
-            background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
-          }
-
-          .shadedstart {
-            box-shadow: 0px 0px 15px #333 inset !important;
-          }
-
-          #startbutton::before {
-            content:'';
-            background: url('./img/xp.png') center/cover no-repeat;
-            position:relative;
-            display:inline-block;
-            height:15px;
-            width:15px;
-            top:1px;
-            transform:skewX(3deg);
-            -webkit-filter:drop-shadow(1px 1px 1px #333);
-            margin-right: 5px;
-          }
-
-          @media only screen and (min-width: 350px) {
-            #contact {
-              min-width: 300px;
-            }
-          }
-
-          button[type="submit"] {
-            margin-top: 1em;
-          }
-
-          #portfolio {
-            overflow-y: scroll;
-            max-width: calc(100vw - 50px);
-            max-height: calc(95vh - 90px);
-          }
-
-          @media only screen and (max-width: 500px) {
-            #portfolio {
-              max-height: calc(90vh - 90px);
-            }
-          }
-
-          figure {
-            display: inline-block;
-          }
-        </style>
-        <script>
-        window.onload = function () {
-          var mainwin = document.getElementById('main');
-          var header = document.getElementById('mainheader');
-          var startbutton = document.getElementById('startbutton');
-
-          // w3schools based code, Make the DIV element draggable:
-          function dragElement(elmnt) {
-            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-            document.getElementById(elmnt.id + "header").ontouchstart = dragMouseDown;
-
-            function dragMouseDown(e) {
-              elmnt.style.position = "absolute";
-              e = e || window.event;
-              e.preventDefault();
-              // https://stackoverflow.com/questions/41993176/determine-touch-position-on-tablets-with-javascript
-              if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
-                var touch = e.touches[0] || e.changedTouches[0];
-                x = touch.pageX;
-                y = touch.pageY;
-              } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
-                x = e.clientX;
-                y = e.clientY;
-              }
-              // get the mouse cursor position at startup:
-              pos3 = x;
-              pos4 = y;
-              document.onmouseup = closeDragElement;
-              document.ontouchend = closeDragElement;
-              // call a function whenever the cursor moves:
-              document.onmousemove = elementDrag;
-              document.ontouchmove = elementDrag;
-            }
-
-            function elementDrag(e) {
-              e = e || window.event;
-              // https://stackoverflow.com/questions/41993176/determine-touch-position-on-tablets-with-javascript
-              if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
-                var touch = e.touches[0] || e.changedTouches[0];
-                x = touch.pageX;
-                y = touch.pageY;
-              } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
-                x = e.clientX;
-                y = e.clientY;
-                e.preventDefault();
-              }
-              // calculate the new cursor position:
-              pos1 = pos3 - x;
-              pos2 = pos4 - y;
-              pos3 = x;
-              pos4 = y;
-              // set the element's new position:
-              elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-              elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            }
-
-            function closeDragElement() {
-              // stop moving when mouse button is released:
-              document.onmouseup = null;
-              document.ontouchend = null;
-              document.onmousemove = null;
-              document.ontouchmove = null;
-            }
-          }
-
-          var maintask = document.getElementById('maintask');
-          window.hideWindow = function () {
-            mainwin.hidden = true;
-            maintask.style.display = 'none';
-          }
-
-          window.toggleWindow = function () {
-            if (mainwin.hidden == true) {
-              mainwin.hidden = false;
-              maintask.style.background = "#2155bd";
-              maintask.style.boxShadow = "0px 0px 2px #333 inset";
-            } else {
-              mainwin.hidden = true;
-              maintask.style.background = "linear-gradient(to bottom,#7fccf3 0%, #0c8dea 12%,#0c8dea 100%) center/cover no-repeat";
-              maintask.style.boxShadow = "-3px 0px 2px #045edb inset";
-            }
-          }
-
-          var max = document.getElementById('max');
-          window.enlarge = function () {
-            header.onmousedown = null;
-            if (max.ariaLabel == "Maximize") {
-              max.ariaLabel = "Restore";
-              mainwin.classList.add('maxed');
-            } else {
-              max.ariaLabel = "Maximize";
-              mainwin.classList.remove('maxed');
-              dragElement(mainwin);
-            }
-          }
-
-          window.onmouseup = function () {
-            startbutton.classList.remove('shadedstart');
-          };
-
-          startbutton.onmouseup = function () {
-            startbutton.classList.remove('shadedstart')
-            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-          };
-
-          startbutton.onmousedown = function () {
-            startbutton.classList.add('shadedstart');
-          };
-
-          var clock = document.getElementById('clock');
-          function setTime() {
-            var time = new Date();
-            clock.textContent = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-          }
-          setTime();
-          setInterval(setTime, 1000);
-
-          // credit: https://github.com/botoxparty/XP.css/
-          function openTab(event, tab) {
-            const articles = tab.parentNode.querySelectorAll('[role="tabpanel"]');
-            articles.forEach((p) => {
-              p.setAttribute("hidden", true);
-            });
-            const article = tab.parentNode.querySelector(
-              `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`
-            );
-            article.removeAttribute("hidden");
-          }
-
-          // credit: https://github.com/botoxparty/XP.css/
-          const tabs = document.querySelectorAll("menu[role=tablist]");
-          for (let i = 0; i < tabs.length; i++) {
-            const tab = tabs[i];
-
-            const tabButtons = tab.querySelectorAll("menu[role=tablist] > button");
-
-            tabButtons.forEach((btn) =>
-              btn.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                tabButtons.forEach((button) => {
-                  if (
-                    button.getAttribute("aria-controls") ===
-                    e.target.getAttribute("aria-controls")
-                  ) {
-                    button.setAttribute("aria-selected", true);
-                    openTab(e, tab);
-                  } else {
-                    button.setAttribute("aria-selected", false);
-                  }
-                });
-              })
-            );
-          }
-
-          dragElement(mainwin);
-        };
-        </script>
-    </head>
-    <body>
+  <head>
+    <title>Edward Howells</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div id="body-container">
+      <div id="window-container">
         <div class="window" id="main">
-            <div class="title-bar" id="mainheader">
-                <div class="title-bar-text">edward70</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow()" ontouchend="toggleWindow()"></button>
-                    <button aria-label="Maximize" onclick="enlarge()" ontouchend="enlarge()" id="max"></button>
-                    <button aria-label="Close" onclick="hideWindow()" ontouchend="hideWindow()"></button>
+          <div class="title-bar" id="mainheader">
+            <div class="title-bar-text">edward70</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize" onclick="toggleWindow()" ontouchstart="toggleWindow()"></button>
+                <button aria-label="Maximize" onclick="enlarge()" ontouchstart="enlarge()" id="max"></button>
+                <button aria-label="Close" onclick="hideWindow()" ontouchstart="hideWindow()"></button>
+              </div>
+          </div>
+          <div class="window-body">
+            <menu role="tablist">
+              <button aria-selected="true" aria-controls="about">About</button>
+              <button aria-controls="portfolio">Portfolio</button>
+              <button aria-controls="contact">Contact</button>
+            </menu>
+            <article role="tabpanel" id="about">
+              <img style="display: inline" src="./img/me.jpg" width="150">
+              <p>Hi there, my name's Edward Howells!</p>
+              <p>I'm studying a Bachelor of Science at <b style="color: blue">The University of Melbourne</b>, Australia.</p>
+              <p>I love reading and learning <b style="color: green">Computer Science</b>!</p>
+              <p>Follow me on <a href="https://github.com/edward70" target="_blank">GitHub</a>. Let's code together :)</p>
+            </article>
+            <article role="tabpanel" hidden id="portfolio">
+              <div class="grid">
+                <figure>
+                  <img src="./img/limacons.PNG" width="150" />
+                  <figcaption><a href="./details/limacons">Limaçons</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/events.PNG" width="150" />
+                  <figcaption><a href="">SCHS Events Site</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/chip8.png" width="150" />
+                  <figcaption><a href="">CHIP-8 Emulator</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/tools.png" width="150" />
+                  <figcaption><a href="">Online Tools</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/quiz.png" width="150" />
+                  <figcaption><a href="">Latin Quiz</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/legend.PNG" width="150" />
+                  <figcaption><a href="">Quadratic Sketching Game</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Cat pic Discord bot</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/mathsnake.png" width="150" />
+                  <figcaption><a href="">Math Snake</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Accident Tracker</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">MHS FutureHack</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Bible App</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Compass schedule Discord bot</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Android Cleaner App</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/gentoo.png" width="150" />
+                  <figcaption><a href="">Linux Desktop</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/editor.png" width="150" />
+                  <figcaption><a href="">Code Editor</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Jekyll Themes</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Compass App</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Tenochtitlan VR Game</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">The Cost of Congestion</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/noise.png" width="150" />
+                  <figcaption><a href="">White Noise Generator</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/inventory.png" width="150" />
+                  <figcaption><a href="">Inventory Management</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="./img/snake.png" width="150" />
+                  <figcaption><a href="">Snake</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Travel Graph</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">MBot Robot</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">COVID Graph</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">GeoJSON Synopsis</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">UEFI Application</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Drawing App</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Quadratic Equations App</a></figcaption>
+                </figure>
+                <figure>
+                  <img src="" width="150" />
+                  <figcaption><a href="">Websocket Live Chat</a></figcaption>
+                </figure>
+              </div>
+            </article>
+            <article role="tabpanel" hidden id="contact">
+              <form
+                action="https://formspree.io/f/xnqyqzlk"
+                method="POST"
+              >
+                <div class="field-row-stacked">
+                  <label for="name">Name</label>
+                  <input id="name" type="text" name="name" required />
                 </div>
-            </div>
-            <div class="window-body">
-                <menu role="tablist">
-                  <button aria-selected="true" aria-controls="about">About</button>
-                  <button aria-controls="portfolio">Portfolio</button>
-                  <button aria-controls="contact">Contact</button>
-                </menu>
-                <article role="tabpanel" id="about">
-                  <img style="display: inline" src="./img/me.jpg" width="150">
-                  <p>Hi there, my name's Edward Howells!</p>
-                  <p>I'm starting a Bachelor of Science at <b style="color: blue">The University of Melbourne</b>, Australia.</p>
-                  <p>I love reading and learning <b style="color: green">Computer Science</b>!</p>
-                  <p>Follow me on <a href="https://github.com/edward70" target="_blank">GitHub</a>. Let's code together :)</p>
-                </article>
-                <article role="tabpanel" hidden id="portfolio">
-                  <figure>
-                    <img src="./img/limacons.PNG" width="150" />
-                    <figcaption><a href="./details/limacons">Limaçons</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/events.PNG" width="150" />
-                    <figcaption><a href="">SCHS Events Site</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/chip8.png" width="150" />
-                    <figcaption><a href="">CHIP-8 Emulator</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/tools.png" width="150" />
-                    <figcaption><a href="">Online Tools</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/quiz.png" width="150" />
-                    <figcaption><a href="">Latin Quiz</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/legend.PNG" width="150" />
-                    <figcaption><a href="">Quadratic Sketching Game</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Cat pic Discord bot</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/mathsnake.png" width="150" />
-                    <figcaption><a href="">Math Snake</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Accident Tracker</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">MHS FutureHack</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Bible App</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Compass schedule Discord bot</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Android Cleaner App</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/gentoo.png" width="150" />
-                    <figcaption><a href="">Linux Desktop</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/editor.png" width="150" />
-                    <figcaption><a href="">Code Editor</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Jekyll Themes</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Compass App</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Tenochtitlan VR Game</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">The Cost of Congestion</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/noise.png" width="150" />
-                    <figcaption><a href="">White Noise Generator</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/inventory.png" width="150" />
-                    <figcaption><a href="">Inventory Management</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="./img/snake.png" width="150" />
-                    <figcaption><a href="">Snake</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Travel Graph</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">MBot Robot</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">COVID Graph</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">GeoJSON Synopsis</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">UEFI Application</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Drawing App</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Quadratic Equations App</a></figcaption>
-                  </figure>
-                  <figure>
-                    <img src="" width="150" />
-                    <figcaption><a href="">Websocket Live Chat</a></figcaption>
-                  </figure>
-                </article>
-                <article role="tabpanel" hidden id="contact">
-                  <form
-                    action="https://formspree.io/f/xnqyqzlk"
-                    method="POST"
-                  >
-                    <div class="field-row-stacked">
-                      <label for="name">Name</label>
-                      <input id="name" type="text" name="name" required />
-                    </div>
-                    <div class="field-row-stacked">
-                      <label for="email">Email</label>
-                      <input id="email" type="email" name="email" required />
-                    </div>
-                    <div class="field-row-stacked">
-                      <label for="message">Message</label>
-                      <textarea id="message" rows="8" name="message" required></textarea>
-                    </div>
-                    <button type="submit">Submit</button>
-                  </form>
-                </article>
-            </div>
+                <div class="field-row-stacked">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" name="email" required />
+                </div>
+                <div class="field-row-stacked">
+                  <label for="message">Message</label>
+                  <textarea id="message" rows="8" name="message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+              </form>
+            </article>
+          </div>
         </div>
-        <div class="taskbar">
-          <label id="startbutton">start</label>
-          <label class="task" onclick="toggleWindow()" id="maintask">edward70</label>
-          <div id="clock">--:-- AM</div>
-        </div>
-    </body>
+      </div>
+      <div class="taskbar">
+        <label id="startbutton">start</label>
+        <label class="task" onclick="toggleWindow()" ontouchstart="toggleWindow()" id="maintask">edward70</label>
+        <div id="clock">--:-- AM</div>
+      </div>
+    </div>
+  </body>
 </html>
