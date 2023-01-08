@@ -22,5 +22,5 @@ Due to the platform limitations of the TI-Nspire, there are some complexities in
 
 - Source code for emulator available: [here](https://github.com/edward70/codearchive/blob/main/nextchip.lua).
 - Script for converting a CHIP-8 ROM into a Lua table: [here](https://github.com/edward70/codearchive/blob/main/chip2int.py).
-- Original tutorial (in C++) used for reference: [here](www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/).
+- Original tutorial (in C++) used for reference: [here](https://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/).
 - TI-Nspire Lua API reference guide: [here](https://education.ti.com/en/guidebook/details/en/59108CCE54484B76AF68879C217D47B2/ti-nspire_scripting-api-guide).
