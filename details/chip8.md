@@ -10,6 +10,8 @@ It follows then, that I was very excited to own a TI-Nspire CX II CAS graphing c
 
 Given the lackluster selection of user-made programs under these constraints, I decided to write my own CHIP-8 emulator in Lua for the TI-Nspire CX II CAS. CHIP-8 was not a real processor ISA, but rather a bytecode format which ran on a variety of mid-1970s computers through the CHIP-8 virtual machine (kind of like the precursor to the JVM, also, wow they had VMs in the 1970s!?). I decided on writing a CHIP-8 emulator because it seemed relatively easy to emulate and there were a good selection of simple games to have fun with like Space Invaders and Tetris, as well as some more modern games made by hobbyists ([My personal favourite](https://johnearnest.github.io/chip8Archive/play.html?p=slipperyslope)).
 
+<img src="../img/octochip8.gif" alt="Cool CHIP-8 animation" width="200"/>
+
 I encountered a variety of challenges in developing this software, most principally of which was that I had almost never written any Lua code before and I had never programmed any kind of emulator. As such, I decided to loosely follow an online tutorial for developing a CHIP-8 emulator in C++ for a desktop computer, adapting the code to Lua and to the specifics of the TI-Nspire Lua API reference. Using my existing knowledge of programming languages such as Python, JavaScript and C, I was able to roughly understand the C++ code (I had barely ever used C++) and quickly adapt and pick up a working understanding of Lua. As such, with copious consultation of the Nspire Lua API reference guide, I was successful in creating a working emulator.
 
 <img src="../img/chip8.png" alt="Working CHIP-8 emulator on my calculator" width="200"/>
