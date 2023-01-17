@@ -128,7 +128,7 @@ window.onload = function () {
       mainwin.hidden = false;
       maintask.style.display = 'block';
     } else {
-      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+      window.open('https://www.linkedin.com/in/edward70');
     }
   };
 
