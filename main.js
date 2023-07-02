@@ -1,6 +1,6 @@
 "use strict";
 
-window.onload = function () {
+document.onload = function () {
   var mainwin = document.getElementById('main');
   var header = document.getElementById('mainheader');
   var startbutton = document.getElementById('startbutton');
@@ -128,7 +128,9 @@ window.onload = function () {
       mainwin.hidden = false;
       maintask.style.display = 'block';
     } else {
-      window.open('https://www.linkedin.com/in/edward70');
+      mainwin.classList.remove('spin');
+      void element.offsetWidth; // trigger reflow (csstricks)
+      mainwin.classList.add('spin');
     }
   };
 
