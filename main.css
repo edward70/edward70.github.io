@@ -151,7 +151,7 @@ button[type="submit"] {
 .taskbar {
     background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%) center/cover no-repeat;
     display: flex;
-    position: sticky;
+    position: fixed;
     bottom: -1px;
     z-index: 999;
     width: 100%;
