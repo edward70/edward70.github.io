@@ -74,6 +74,7 @@ window.hideWindow = function (event) {
   event.stopPropagation();
   mainwin.classList.remove('spin');
   clearTimeout(timeout);
+  mainwin.classList.remove('maxed');
   mainwin.setAttribute('hidden', true);
   maintask.style.display = 'none';
 }
