@@ -77,25 +77,10 @@ body {
     box-shadow: 0px 0px 2px #333 inset;
 }
 
-figure {
-    margin: 20px;
-}
-
 /* Ensure minimum size on larger screens */
 @media only screen and (min-width: 350px) {
     #contact {
         min-width: 300px;
-    }
-}
-
-/* fix portfolio display for small screens */
-@media only screen and (max-width: 600px) {
-    figure, figure > img {
-        width: 100px;
-    }
-
-    figure {
-        margin: 1em;
     }
 }
 
@@ -119,6 +104,15 @@ button[type="submit"] {
 
 #portfolio-grid > figure {
     display: inline-block;
+    margin: 20px;
+}
+
+/* fix portfolio display for small screens */
+@media only screen and (max-width: 600px) {
+    #portfolio-grid > figure {
+        width: 100px;
+	margin: 1em;
+    }
 }
 
 /* Following code adapted from https://codepen.io/brundolf/pen/wzMWdy */
