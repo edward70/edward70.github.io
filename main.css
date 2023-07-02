@@ -77,6 +77,16 @@ body {
     box-shadow: 0px 0px 2px #333 inset;
 }
 
+#contact {
+    overflow-y: scroll;
+    max-height: calc(100vh - 130px);  /* fallback */
+    max-height: calc(100dvh - 130px);
+}
+
+#message {
+    max-width: calc(100vw - 50px);
+}
+
 /* Ensure minimum size on larger screens */
 @media only screen and (min-width: 350px) {
     #contact {
