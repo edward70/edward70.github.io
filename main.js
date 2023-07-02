@@ -121,6 +121,8 @@ window.enlarge = function (event) {
 window.onmouseup = function () {
   startbutton.classList.remove('shadedstart');
 };
+window.ontouchcancel = window.onmouseup;
+window.ontouchend = window.onmouseup;
 
 var timeouts = [];
 startbutton.onmouseup = function () {
@@ -137,6 +139,7 @@ startbutton.onmouseup = function () {
     }, 2000));
   }
 };
+startbutton.ontouchend = startbutton.onmouseup;
 
 startbutton.onmousedown = function () {
   startbutton.classList.add('shadedstart');
