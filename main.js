@@ -141,6 +141,7 @@ startbutton.onmouseup = function () {
 startbutton.onmousedown = function () {
   startbutton.classList.add('shadedstart');
 };
+startbutton.ontouchstart = startbutton.onmousedown;
 
 var clock = document.getElementById('clock');
 function setTime() {
