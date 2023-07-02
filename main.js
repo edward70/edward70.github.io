@@ -78,6 +78,7 @@ window.hideWindow = function (event) {
 
 window.toggleWindow = function (event) {
   event.stopPropagation();
+  mainwin.classList.remove('spin');
   if (mainwin.hidden == true) {
     mainwin.hidden = false;
     maintask.style.background = "#2155bd";
