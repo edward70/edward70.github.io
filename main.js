@@ -75,6 +75,11 @@ window.hideWindow = function (event) {
   mainwin.classList.remove('spin');
   clearTimeout(timeout);
   mainwin.classList.remove('maxed');
+  const articles = document.querySelectorAll('[role="tabpanel"]');
+  articles.forEach((p) => {
+    p.setAttribute("hidden", true);
+  });
+  document.getElementById('about').removeAttribute('hidden');
   mainwin.setAttribute('hidden', true);
   maintask.style.display = 'none';
 }
