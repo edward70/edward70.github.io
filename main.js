@@ -159,6 +159,9 @@ function openTab(event, tab) {
   const article = tab.parentNode.querySelector(
     `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`
   );
+  if (event.target.getAttribute("aria-controls") == 'portfolio') {
+    mainwin.removeAttribute('style');  // recenter window when opening portfolio to prevent overflow
+  }
   article.removeAttribute("hidden");
 }
 
