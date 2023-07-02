@@ -1,10 +1,16 @@
 /* Layout styling */
 
+html, body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
     background-image: url('./img/greenhills.jpg');
     background-size: cover;
-    margin: 0;
-    overflow: hidden;
+    background-attachment: fixed;
+    -webkit-transform: translate3d(0,0,0);
 }
 
 #body-container {
