@@ -97,13 +97,15 @@ button[type="submit"] {
 #portfolio-grid {
     box-sizing: border-box;
     text-align: center;
-    width: min(calc(100vw - 100px), 580px);  /* max size of 580px (3 cols) unmaximized on large screens */
+    width: calc(100vw - 100px);
+    max-width: 580px;  /* max size of 580px (3 cols) unmaximized on large screens */
     height: calc(100vh - 130px); /* fallback */
     height: calc(100dvh - 130px);
 }
 
 .maxed #portfolio-grid {
     width: calc(100vw - 50px);
+    max-width: calc(100vw - 50px);
 }
 
 #portfolio-grid > figure {
