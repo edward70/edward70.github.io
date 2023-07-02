@@ -115,7 +115,7 @@ button[type="submit"] {
 
 .maxed #portfolio-grid {
     width: calc(100vw - 50px);
-    max-width: calc(100vw - 50px);
+    max-width: none;
 }
 
 #portfolio-grid > figure {
