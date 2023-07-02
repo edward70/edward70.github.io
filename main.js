@@ -108,11 +108,11 @@ window.enlarge = function (event) {
   header.ontouchstart = null;
   header.ontouchend = null;
   header.ontouchmove = null;
-  if (max.getAttribute('ariaLabel') == 'Maximize') {
-    max.setAttribute('ariaLabel', 'Restore');
+  if (max.getAttribute('aria-label') == 'Maximize') {
+    max.setAttribute('aria-label', 'Restore');
     mainwin.classList.add('maxed');
   } else {
-    max.setAttribute('ariaLabel', 'Maximize');
+    max.setAttribute('aria-label', 'Maximize');
     mainwin.classList.remove('maxed');
     dragElement(mainwin);
   }
