@@ -10,7 +10,6 @@ body {
     background-image: url('./img/greenhills.jpg');
     background-size: cover;
     background-attachment: fixed;
-    -webkit-transform: translate3d(0,0,0);
 }
 
 #body-container {
@@ -152,7 +151,7 @@ button[type="submit"] {
 .taskbar {
     background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%) center/cover no-repeat;
     display: flex;
-    position: fixed;
+    position: sticky;
     bottom: -1px;
     z-index: 999;
     width: 100%;
