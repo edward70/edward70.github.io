@@ -83,6 +83,14 @@ body {
     max-height: calc(100dvh - 130px);
 }
 
+/* firefox does not support -webkit-scrollbar ... sigh */
+@supports selector(::-webkit-scrollbar) {
+    #contact {
+        max-height: calc(100vh - 147px);  /* fallback */
+        max-height: calc(100dvh - 147px);
+    }
+}
+
 #message {
     max-width: calc(100vw - 50px);
 }
