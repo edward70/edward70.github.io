@@ -72,19 +72,19 @@ function dragElement(elmnt) {
 var maintask = document.getElementById('maintask');
 window.hideWindow = function (event) {
   event.stopPropagation();
-  mainwin.hidden = true;
+  mainwin.setAttribute('hidden', true);
   maintask.style.display = 'none';
 }
 
 window.toggleWindow = function (event) {
   event.stopPropagation();
   mainwin.classList.remove('spin');
-  if (mainwin.hidden == true) {
-    mainwin.hidden = false;
+  if (mainwin.getAttribute('hidden')) {
+    mainwin.removeAttribute('hidden');
     maintask.style.background = "#2155bd";
     maintask.style.boxShadow = "0px 0px 2px #333 inset";
   } else {
-    mainwin.hidden = true;
+    mainwin.setAttribute('hidden', true);
     maintask.style.background = "linear-gradient(to bottom,#7fccf3 0%, #0c8dea 12%,#0c8dea 100%) center/cover no-repeat";
     maintask.style.boxShadow = "-3px 0px 2px #045edb inset";
   }
@@ -108,11 +108,11 @@ window.enlarge = function (event) {
   header.ontouchstart = null;
   header.ontouchend = null;
   header.ontouchmove = null;
-  if (max.ariaLabel == "Maximize") {
-    max.ariaLabel = "Restore";
+  if (max.getAttribute('ariaLabel') == 'Maximize') {
+    max.setAttribute('ariaLabel', 'Restore');
     mainwin.classList.add('maxed');
   } else {
-    max.ariaLabel = "Maximize";
+    max.setAttribute('ariaLabel', 'Maximize');
     mainwin.classList.remove('maxed');
     dragElement(mainwin);
   }
@@ -126,7 +126,7 @@ var timeouts = [];
 startbutton.onmouseup = function () {
   startbutton.classList.remove('shadedstart');
   if (maintask.style.display == 'none') {
-    mainwin.hidden = false;
+    mainwin.removeAttribute('hidden');
     maintask.style.display = 'block';
   } else if (timeouts.length == 0) {
     void mainwin.offsetWidth; // trigger reflow (csstricks)
