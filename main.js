@@ -127,15 +127,12 @@ startbutton.onmouseup = function () {
   if (maintask.style.display == 'none') {
     mainwin.hidden = false;
     maintask.style.display = 'block';
-  } else {
-    for (var i = 0; i < timeouts.length; i++) {
-      clearTimeout(timeouts[i]);
-    }
-    timeouts = [];
+  } else if (timeouts.length == 0) {
     void mainwin.offsetWidth; // trigger reflow (csstricks)
     mainwin.classList.add('spin');
     timeouts.push(setTimeout(function () {
       mainwin.classList.remove('spin');
+      timeouts = [];
     }, 2000));
   }
 };
