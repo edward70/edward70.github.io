@@ -129,6 +129,7 @@ startbutton.onmouseup = function () {
   startbutton.classList.remove('shadedstart');
   if (maintask.style.display == 'none') {
     mainwin.removeAttribute('hidden');
+    mainwin.removeAttribute('style');
     maintask.style.display = 'block';
   } else if (timeouts.length == 0) {
     void mainwin.offsetWidth; // trigger reflow (csstricks)
@@ -139,7 +140,6 @@ startbutton.onmouseup = function () {
     }, 2000));
   }
 };
-startbutton.ontouchend = startbutton.onmouseup;
 
 startbutton.onmousedown = function () {
   startbutton.classList.add('shadedstart');
