@@ -1,6 +1,6 @@
 "use strict";
 
-document.onload = function () {
+window.onload = function () {
   var mainwin = document.getElementById('main');
   var header = document.getElementById('mainheader');
   var startbutton = document.getElementById('startbutton');
