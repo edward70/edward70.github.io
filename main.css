@@ -79,7 +79,7 @@ body {
 
 #contact {
     overflow-y: scroll;
-    max-height: calc(100vh - 150px);  /* fallback */
+    max-height: calc(100vh - 170px);  /* fallback */
     max-height: calc(100dvh - 130px);
 }
 
@@ -110,7 +110,7 @@ button[type="submit"] {
     text-align: center;
     width: calc(100vw - 100px);
     max-width: 580px;  /* max size of 580px (3 cols) unmaximized on large screens */
-    height: calc(100vh - 150px); /* fallback */
+    height: calc(100vh - 170px); /* fallback */
     height: calc(100dvh - 130px);
 }
 
