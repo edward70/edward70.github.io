@@ -150,3 +150,14 @@ button[type="submit"] {
     -webkit-filter: drop-shadow(1px 1px 1px #333);
     margin-right: 5px;
 }
+
+/* animation */
+
+@keyframes rotateAnimation {
+	from {transform: rotate3d(1, 1, 1, 0deg);}
+	to {transform: rotate3d(1, 1, 1, 360deg);}
+}
+
+.spin {
+    animation: rotateAnimation 5s linear;
+}
