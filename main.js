@@ -129,7 +129,7 @@ window.onload = function () {
       maintask.style.display = 'block';
     } else {
       mainwin.classList.remove('spin');
-      void element.offsetWidth; // trigger reflow (csstricks)
+      void mainwin.offsetWidth; // trigger reflow (csstricks)
       mainwin.classList.add('spin');
     }
   };
