@@ -26,6 +26,7 @@ body {
     height: calc(100vh - 28px); /* fallback */
     height: calc(100dvh - 28px);
     overflow: hidden;
+    position: relative;
 }
 
 .window {
