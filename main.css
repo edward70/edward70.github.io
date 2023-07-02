@@ -102,6 +102,10 @@ button[type="submit"] {
     height: calc(100dvh - 130px);
 }
 
+.maxed #portfolio-grid {
+    width: calc(100vw - 50px);
+}
+
 #portfolio-grid > figure {
     display: inline-block;
     margin: 20px;
@@ -112,6 +116,9 @@ button[type="submit"] {
     #portfolio-grid > figure {
         width: 100px;
 	margin: 1em;
+    }
+    #portfolio-grid img {
+        width: 100px;
     }
 }
 
