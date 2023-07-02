@@ -72,6 +72,8 @@ function dragElement(elmnt) {
 var maintask = document.getElementById('maintask');
 window.hideWindow = function (event) {
   event.stopPropagation();
+  mainwin.classList.remove('spin');
+  clearTimeout(timeout);
   mainwin.setAttribute('hidden', true);
   maintask.style.display = 'none';
 }
@@ -79,6 +81,7 @@ window.hideWindow = function (event) {
 window.toggleWindow = function (event) {
   event.stopPropagation();
   mainwin.classList.remove('spin');
+  clearTimeout(timeout);
   if (mainwin.getAttribute('hidden')) {
     mainwin.removeAttribute('hidden');
     maintask.style.background = "#2155bd";
@@ -124,20 +127,20 @@ window.onmouseup = function () {
 window.ontouchcancel = window.onmouseup;
 window.ontouchend = window.onmouseup;
 
-var timeouts = [];
+var timeout = null;
 startbutton.onmouseup = function () {
   startbutton.classList.remove('shadedstart');
   if (maintask.style.display == 'none') {
     mainwin.removeAttribute('hidden');
     mainwin.removeAttribute('style');
     maintask.style.display = 'block';
-  } else if (timeouts.length == 0) {
+  } else if (timeout == null) {
     void mainwin.offsetWidth; // trigger reflow (csstricks)
     mainwin.classList.add('spin');
-    timeouts.push(setTimeout(function () {
+    timeout = setTimeout(function () {
       mainwin.classList.remove('spin');
-      timeouts = [];
-    }, 2000));
+      timeout = null;
+    }, 2000);
   }
 };
 
