@@ -74,6 +74,7 @@ window.hideWindow = function (event) {
   event.stopPropagation();
   mainwin.classList.remove('spin');
   clearTimeout(timeout);
+  timeout = null;
   mainwin.classList.remove('maxed');
   const articles = document.querySelectorAll('[role="tabpanel"]');
   articles.forEach((p) => {
