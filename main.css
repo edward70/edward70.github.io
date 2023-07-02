@@ -96,6 +96,7 @@ button[type="submit"] {
 
 #portfolio-grid {
     box-sizing: border-box;
+	text-align: center;
     width: calc(100vw - 100px);
     height: calc(100vh - 130px); /* fallback */
     height: calc(100dvh - 130px);
