@@ -143,9 +143,9 @@ button[type="submit"] {
     font-family: arial;
     color: white;
     font-style: italic;
-    padding: 5px 25px 5px 15px;
+    padding: 5px 22px 5px 15px;
     text-shadow: 1px 1px 1px #333;
-    border-radius: 0px 10px 15px 0px;
+    border-radius: 0px 10px 10px 0px;
     border: none;
     transform: skewX(-3deg);
     left: -5px;
