@@ -97,7 +97,7 @@ button[type="submit"] {
 #portfolio-grid {
     box-sizing: border-box;
     text-align: center;
-    width: calc(100vw - 100px);
+    width: min(calc(100vw - 100px), 580px);  /* max size of 580px (3 cols) unmaximized on large screens */
     height: calc(100vh - 130px); /* fallback */
     height: calc(100dvh - 130px);
 }
