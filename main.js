@@ -127,9 +127,11 @@ startbutton.onmouseup = function () {
     mainwin.hidden = false;
     maintask.style.display = 'block';
   } else {
-    mainwin.classList.remove('spin');
     void mainwin.offsetWidth; // trigger reflow (csstricks)
     mainwin.classList.add('spin');
+    setTimeout(function () {
+      mainwin.classList.remove('spin');
+    }, 2000);
   }
 };
 
