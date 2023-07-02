@@ -89,6 +89,7 @@ window.toggleWindow = function (event) {
   event.stopPropagation();
   mainwin.classList.remove('spin');
   clearTimeout(timeout);
+  timeout = null;
   if (mainwin.getAttribute('hidden')) {
     mainwin.removeAttribute('hidden');
     maintask.style.background = "#2155bd";
