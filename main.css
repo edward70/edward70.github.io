@@ -79,7 +79,7 @@ body {
 
 #contact {
     overflow-y: scroll;
-    max-height: calc(100vh - 130px);  /* fallback */
+    max-height: calc(100vh - 150px);  /* fallback */
     max-height: calc(100dvh - 130px);
 }
 
@@ -110,16 +110,8 @@ button[type="submit"] {
     text-align: center;
     width: calc(100vw - 100px);
     max-width: 580px;  /* max size of 580px (3 cols) unmaximized on large screens */
-    height: calc(100vh - 130px); /* fallback */
+    height: calc(100vh - 150px); /* fallback */
     height: calc(100dvh - 130px);
-}
-
-/* firefox does not support -webkit-scrollbar ... sigh */
-@supports selector(::-webkit-scrollbar) {
-    #contact, #portfolio-grid {
-        max-height: calc(100vh - 147px);  /* fallback */
-        max-height: calc(100dvh - 147px);
-    }
 }
 
 .maxed #portfolio-grid {
