@@ -121,17 +121,22 @@ window.onmouseup = function () {
   startbutton.classList.remove('shadedstart');
 };
 
+var timeouts = [];
 startbutton.onmouseup = function () {
   startbutton.classList.remove('shadedstart');
   if (maintask.style.display == 'none') {
     mainwin.hidden = false;
     maintask.style.display = 'block';
   } else {
+    for (var i = 0; i < timeouts.length; i++) {
+      clearTimeout(timeouts[i]);
+    }
+    timeouts = [];
     void mainwin.offsetWidth; // trigger reflow (csstricks)
     mainwin.classList.add('spin');
-    setTimeout(function () {
+    timeouts.push(setTimeout(function () {
       mainwin.classList.remove('spin');
-    }, 2000);
+    }, 2000));
   }
 };
 
