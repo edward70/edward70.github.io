@@ -143,6 +143,10 @@ button[type="submit"] {
     }
 }
 
+#about {
+    min-height: 185px;
+}
+
 /* Following code adapted from https://codepen.io/brundolf/pen/wzMWdy */
 
 .taskbar {
