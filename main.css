@@ -159,5 +159,5 @@ button[type="submit"] {
 }
 
 .spin {
-    animation: rotateAnimation 5s linear;
+    animation: rotateAnimation 2s ease-out;
 }
