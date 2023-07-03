@@ -114,8 +114,8 @@ window.enlarge = function (event) {
   event.stopPropagation();
   header.onmousedown = null;
   header.ontouchstart = null;
-  header.ontouchend = null;
-  header.ontouchmove = null;
+  //header.ontouchend = null;
+  //header.ontouchmove = null;
   if (max.getAttribute('aria-label') == 'Maximize') {
     max.setAttribute('aria-label', 'Restore');
     mainwin.classList.add('maxed');
