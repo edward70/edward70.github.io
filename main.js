@@ -72,14 +72,16 @@ function dragElement(elmnt) {
 var maintask = document.getElementById('maintask');
 window.hideWindow = function (event) {
   event.stopPropagation();
-  mainwin.classList.remove('spin');
-  clearTimeout(timeout);
-  timeout = null;
-  mainwin.classList.remove('maxed');
+  // reset all window features
+  mainwin.classList.remove('spin');  // remove spin animation
+  clearTimeout(timeout);  // clear spin cancel timeout to prevent re-instantiation flicker
+  timeout = null;  // clear timeout itself so future cancels don't bug
+  mainwin.classList.remove('maxed');  // de-maximise window
   max.setAttribute('aria-label', 'Maximize');
-  document.querySelector('[aria-controls="about"]').click();
-  mainwin.setAttribute('hidden', true);
-  maintask.style.display = 'none';
+  dragElement(mainwin);  // make window draggable (it will be undraggable if previously maximised)
+  document.querySelector('[aria-controls="about"]').click();  // return to default panel
+  mainwin.setAttribute('hidden', true);  // display window
+  maintask.style.display = 'none';  // display taskbar button
 }
 
 window.toggleWindow = function (event) {
