@@ -76,6 +76,7 @@ window.hideWindow = function (event) {
   clearTimeout(timeout);
   timeout = null;
   mainwin.classList.remove('maxed');
+  max.setAttribute('aria-label', 'Maximize');
   const articles = document.querySelectorAll('[role="tabpanel"]');
   articles.forEach((p) => {
     p.setAttribute("hidden", true);
