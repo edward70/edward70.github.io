@@ -77,11 +77,7 @@ window.hideWindow = function (event) {
   timeout = null;
   mainwin.classList.remove('maxed');
   max.setAttribute('aria-label', 'Maximize');
-  const articles = document.querySelectorAll('[role="tabpanel"]');
-  articles.forEach((p) => {
-    p.setAttribute("hidden", true);
-  });
-  document.getElementById('about').removeAttribute('hidden');
+  document.querySelector('[aria-controls="about"]').click();
   mainwin.setAttribute('hidden', true);
   maintask.style.display = 'none';
 }
